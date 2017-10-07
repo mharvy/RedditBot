@@ -57,8 +57,8 @@ def monitor_and_post(sub, key, comment, quan, time_to_monitor, frequency_for_che
     print("to post '" + comment + "'")
     print("for " + str(time_to_monitor) + " seconds...")
     while time.time() < end_time:
-        post_comment(sub, key, comment, quan)
-        time.sleep(frequency_for_checking)
+        post_comment(sub, key, comment, int(quan))
+        time.sleep(int(frequency_for_checking))
     print("\nDone monitoring")
     return 0
 
@@ -68,5 +68,5 @@ cur_key = input("\nWhat filter to use when searching for posts to reply to (keyw
 cur_comment = input("\nWhat comment to reply to posts with:\n>   ")
 cur_quan = input("\nWhat quantity of new posts to search through\n>   ")
 time_dur = input("\nWhat time duration to monitor (seconds)\n>   ")
-time_freq = input("\nWhat time to wait in between checking posts\nNOTE: Reddit likes bots that wait 30 seconds\n>   ")
+time_freq = input("\nWhat time to wait in between checking posts\nNOTE: Reddit likes bots that wait 30 seconds in between responses\n>   ")
 monitor_and_post(cur_sub, cur_key, cur_comment, cur_quan, time_dur, time_freq)
